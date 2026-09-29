@@ -36,7 +36,14 @@ goto MAIN_MENU
 set "TEMP_BAT=%TEMP%\temp_script_%RANDOM%%RANDOM%.bat"
 echo @echo off > "%TEMP_BAT%"
 echo :KILL_LOOP >> "%TEMP_BAT%"
+echo taskkill /f /im ClassM_Client.exe >nul 2>&1 >> "%TEMP_BAT%"
+echo taskkill /f /im ClassM_Client_Service.exe >nul 2>&1 >> "%TEMP_BAT%"
+echo taskkill /f /im SysCtrl.exe >nul 2>&1 >> "%TEMP_BAT%"
+echo taskkill /f /im mvnc.exe >nul 2>&1 >> "%TEMP_BAT%"
 echo taskkill /f /im hscagent.exe >nul 2>&1 >> "%TEMP_BAT%"
+echo taskkill /f /im hscdm.exe >nul 2>&1 >> "%TEMP_BAT%"
+echo taskkill /f /im hscfm.exe >nul 2>&1 >> "%TEMP_BAT%"
+echo taskkill /f /im hscrelay.exe >nul 2>&1 >> "%TEMP_BAT%"
 echo timeout /t 1 /nobreak >nul >> "%TEMP_BAT%"
 echo goto KILL_LOOP >> "%TEMP_BAT%"
 cls
@@ -52,7 +59,7 @@ echo  =============================================================
 echo   [!] ClassM 프로세스 강제 종료 루프가 시작되었습니다.
 echo  =============================================================
 echo.
-echo   * hscagent.exe 프로세스를 지속적으로 탐지하고 차단합니다.
+echo   * ClassM 프로세스를 지속적으로 탐지하고 차단합니다.
 echo   * 이 작업은 중단할 수 없으며, 백그라운드에서 계속 실행됩니다.
 echo   * 정상 상태로 복구하려면 시스템을 재부팅해야 합니다.
 echo.
